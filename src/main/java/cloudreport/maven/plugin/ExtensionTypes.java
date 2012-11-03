@@ -2,7 +2,8 @@ package cloudreport.maven.plugin;
 
 import static cloudreport.maven.plugin.util.Reflections.*;
 
-public enum ExtensionTypes {
+public enum ExtensionTypes 
+{
 
 	/**
 	 * Virtual machines allocation policies
@@ -98,14 +99,16 @@ public enum ExtensionTypes {
 	/**
 	 * @return the type
 	 */
-	public String getType() {
+	public String getType() 
+	{
 		return type;
 	}
 
 	/**
 	 * @return the classAssignableFrom
 	 */
-	public String getClassAssignableFrom() {
+	public String getClassAssignableFrom() 
+	{
 		return classAssignableFrom;
 	}
 }

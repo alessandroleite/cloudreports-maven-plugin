@@ -24,16 +24,12 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
-import org.codehaus.plexus.compiler.util.scan.SimpleSourceInclusionScanner;
-import org.codehaus.plexus.compiler.util.scan.SourceInclusionScanner;
-import org.codehaus.plexus.compiler.util.scan.mapping.SourceMapping;
 
 import cloudreport.maven.plugin.xml.ClassEntry;
 import cloudreport.maven.plugin.xml.Classnames;
 import cloudreport.maven.plugin.xml.JAXBMarshallAndUnMarshall;
 
 import com.google.common.base.Function;
-import com.google.common.base.Preconditions;
 
 /**
  * @version $Id$
@@ -82,7 +78,7 @@ public class ExtensionClassNamesMojo extends AbstractMojo {
 	File sourceDirectory;
 
 	// --------------------------------------------------------------------- //
-	// - Mojo Runtime Information - //
+	// - Mojo Runtime Information 										   - //
 	// --------------------------------------------------------------------- //
 
 	/**
@@ -153,31 +149,7 @@ public class ExtensionClassNamesMojo extends AbstractMojo {
 		Set<Artifact> artifacts = new LinkedHashSet<Artifact>();
 		artifacts.addAll(project.getCompileArtifacts());
 		artifacts.addAll(project.getRuntimeArtifacts());
-		
-		Preconditions.checkArgument(!artifacts.isEmpty());
 
-		return new LinkedList<Artifact>(artifacts);
-	}
-
-	/**
-	 * Creates a source inclusion scanner.
-	 * 
-	 * @return The inclusion scanner.
-	 */
-	@SuppressWarnings("unused")
-	private SourceInclusionScanner getSourceInclusionScanner() {
-		SourceInclusionScanner scanner = new SimpleSourceInclusionScanner(
-				Collections.<String> emptySet(),
-				Collections.<String> emptySet());
-
-		scanner.addSourceMapping(new SourceMapping() {
-
-			@SuppressWarnings({ "rawtypes", "unchecked" })
-			@Override
-			public Set getTargetFiles(File targetDir, String source) {
-				return null;
-			}
-		});
-		return scanner;
+		return Collections.unmodifiableList(new LinkedList<Artifact>(artifacts));
 	}
 }
