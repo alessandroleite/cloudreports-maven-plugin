@@ -69,24 +69,24 @@ Add to your pom.xml:
 
 To add the _cloudreports-maven-plugin_ in your project just add the following lines:
 
-<plugins>
-	<plugin>
-		<groupId>cloudreports</groupId>
-		<artifactId>cloudreports-maven-plugin</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<configuration>
-			<extensionDir>your cloudreports's extension directory! (Example: /home/m/cloudreports/extensions/)</extensionDir>
-		</configuration>
-		<executions>
-			<execution>
-				<phase>package</phase>
-				<goals>
-					<goal>generate-file</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
-</plugins>
+	<plugins>
+		<plugin>
+			<groupId>cloudreports</groupId>
+			<artifactId>cloudreports-maven-plugin</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<configuration>
+				<extensionDir>your cloudreports's extension directory! (Example: /home/m/cloudreports/extensions/)</extensionDir>
+			</configuration>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>generate-file</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
 
 How contribute
 --------------
