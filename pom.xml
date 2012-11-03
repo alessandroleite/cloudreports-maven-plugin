@@ -2,13 +2,34 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cloudreport</groupId>
-	<artifactId>cloudreport-maven-plugin</artifactId>
+	<groupId>cloudreports</groupId>
+	<artifactId>cloudreports-maven-plugin</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
-	<dependencies>
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://github.com/alessandroleite/maven-repository/raw/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://github.com/alessandroleite/maven-repository/raw/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public-plugin-releases</id>
+			<url>https://github.com/kevinpollet/maven-repository/raw/master/releases</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>public-plugin-snapshots</id>
+			<url>https://github.com/kevinpollet/maven-repository/raw/master/snapshots</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
 		<!-- Compile dependencies -->
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -88,6 +109,33 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<inherited>true</inherited>
+				</plugin>
+				<plugin>
+					<groupId>com.github.maven.plugin</groupId>
+					<artifactId>maven-github-plugin</artifactId>
+					<version>1.0.0.Beta1</version>
+					<configuration>
+						<login>${github.login}</login>
+						<token>${github.token}</token>
+						<repository>https://github.com/alessandroleite/maven-repository</repository>
+						<excludes>
+							<exclude>*.zip</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>sonar-maven-plugin</artifactId>
