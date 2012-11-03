@@ -105,3 +105,8 @@ To contribute, follow this steps:
  2. Add the progress label to the issue you want to solve (add a comments to say that you work on it)
  3. Create a topic branch for this issue
  4. When you have finish your work, open a pull request (use the issue title for the pull request title)
+ 
+[maven]: http://maven.apache.org/
+[cloudreports]:https://github.com/thiagotts/CloudReports/
+[cloudreports-developing-extensions]:https://github.com/thiagotts/CloudReports/wiki/Developing-extensions
+ 
