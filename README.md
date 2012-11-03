@@ -20,7 +20,6 @@ How use it ?
 
 Add to your pom.xml:
 
-```
 	<repositories>
 		<repository>
 			<id>cloudreports-snapshot-repo</id>
@@ -65,13 +64,11 @@ Add to your pom.xml:
 		</pluginRepository>
 	</pluginRepositories>
 
-```
 
 ### Build Configuration
 
 To add the _cloudreports-maven-plugin_ in your project just add the following lines:
 
-```
 <plugins>
 	<plugin>
 		<groupId>cloudreports</groupId>
@@ -90,7 +87,6 @@ To add the _cloudreports-maven-plugin_ in your project just add the following li
 		</executions>
 	</plugin>
 </plugins>
-```
 
 How contribute
 --------------
