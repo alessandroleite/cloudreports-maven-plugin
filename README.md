@@ -65,6 +65,7 @@ Add to your pom.xml:
 		</pluginRepository>
 	</pluginRepositories>
 
+```
 
 ### Build Configuration
 
@@ -89,6 +90,7 @@ To add the _cloudreports-maven-plugin_ in your project just add the following li
 		</executions>
 	</plugin>
 </plugins>
+```
 
 How contribute
 --------------
